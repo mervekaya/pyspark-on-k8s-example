@@ -1,0 +1,47 @@
+# Base image
+FROM python:3.8.10-slim
+
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive
+ENV JAVA_HOME=/opt/jdk-11.0.20.1+1
+ENV PATH=$JAVA_HOME/bin:$PATH
+ENV SPARK_CLASSPATH="/opt/spark/jars/*"
+
+# Update and install necessary packages
+RUN apt-get update && apt-get install -y \
+    openssh-server \
+    wget \
+    tar \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Start SSH service
+RUN mkdir /var/run/sshd
+
+# Add user
+RUN useradd -m devuser && echo "devuser:devuser" | chpasswd
+
+# Create project workspace and set permissions
+RUN mkdir -p /workspace/project && \
+    chown -R devuser:devuser /workspace/project && \
+    chmod -R 775 /workspace/project
+
+# Install Python dependencies
+RUN pip install --no-cache-dir pyspark==3.5.3
+
+# Install Microsoft JDK
+RUN wget https://aka.ms/download-jdk/microsoft-jdk-11.0.20.1-linux-x64.tar.gz -O /tmp/microsoft-jdk.tar.gz && \
+    tar -xvzf /tmp/microsoft-jdk.tar.gz -C /opt && \
+    rm /tmp/microsoft-jdk.tar.gz && \
+    update-alternatives --install /usr/bin/java java /opt/jdk-11.0.20.1+1/bin/java 1
+
+RUN groupadd -r spark && useradd -r -g spark spark
+
+# Create Spark jars directory and download necessary JARs
+RUN mkdir -p /opt/spark/jars && \
+    chown -R spark:spark /opt/spark/jars/
+
+# Expose SSH port
+EXPOSE 22
+
+# Start SSH service by default
+CMD ["/usr/sbin/sshd", "-D"]

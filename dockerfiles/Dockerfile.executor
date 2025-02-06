@@ -1,0 +1,6 @@
+FROM spark:3.5.3
+USER root
+WORKDIR /app
+COPY . .
+RUN pip3 install -r requirements.txt
+CMD ["python3", "main.py"]
