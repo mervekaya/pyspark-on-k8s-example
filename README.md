@@ -147,7 +147,7 @@ Other parameters in `config.json` can be modified based on project-specific requ
 
    ## 5 IDE Setup for Remote Execution (PyCharm)
 
-Note: PyCharm was tested in this project, but a similar setup can be tried with VSCode."
+Note: PyCharm was tested in this project, but a similar setup can be tried with VSCode.
 
 
 1. Go to **Settings** → **Project: <project_name>** → **Python Interpreter**.
@@ -165,4 +165,4 @@ Once inside in pode, you can find your code under the `/workspace` directory aft
 kubectl exec -it dev-pod -n spark -- /bin/bash
 cd /workspace
 ```
-✈️ Everything is ready! Now you can run your code on Kubernetes by clicking the Run button or debug it by clicking the Debug button.
+✈️ Everything is ready! Now you can run your code on Kubernetes by clicking the **Run** button or debug it by clicking the **Debug** button.
