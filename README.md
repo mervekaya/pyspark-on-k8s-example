@@ -134,14 +134,15 @@ To run our code on Kubernetes, we need to specify the `Spark master` in `main.py
     kubectl get pod dev-pod -n spark -o wide
    ```
    The **IP** column in the output contains the required **driver host IP**.
-- **Spark-Kubernetes Settings**: Update as needed
-  ```bash 
- `  {
+   
+**Spark-Kubernetes Settings**: Update as needed
+```json
+ {
   "spark.kubernetes.namespace": "spark",
   "spark.kubernetes.container.image.pullPolicy": "IfNotPresent",
   "spark.kubernetes.authenticate.driver.serviceAccountName": "spark-role"
-   }`
- ```
+}
+```
 Other parameters in `config.json` can be modified based on project-specific requirements.
 
    ## 5 IDE Setup for Remote Execution (PyCharm)
