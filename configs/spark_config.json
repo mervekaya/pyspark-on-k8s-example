@@ -10,5 +10,5 @@
   "spark.executor.extraClassPath": "/opt/spark/jars/*",
   "spark.kubernetes.namespace": "spark",
   "spark.kubernetes.container.image.pullPolicy": "IfNotPresent",
-  "spark.kubernetes.authenticate.driver.serviceAccountName": "spark-pycharm"
+  "spark.kubernetes.authenticate.driver.serviceAccountName": "spark-role"
 }

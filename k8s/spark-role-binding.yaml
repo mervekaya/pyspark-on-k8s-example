@@ -1,12 +1,12 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: spark-pycharm-edit-binding
+  name: spark-role-edit-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: edit
 subjects:
 - kind: ServiceAccount
-  name: spark-pycharm
+  name: spark-role
   namespace: spark

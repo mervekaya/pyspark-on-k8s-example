@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: dev-pod-merve
+  name: dev-pod
   labels:
     app: dev
 spec:
   containers:
-  - name: dev-container-merve
+  - name: dev-container
     image: mervezeybel/devpod # Build and push the image with this tag
     ports:
     - containerPort: 22
