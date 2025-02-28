@@ -165,4 +165,4 @@ Once inside in pode, you can find your code under the `/workspace` directory aft
 kubectl exec -it dev-pod -n spark -- /bin/bash
 cd /workspace
 ```
-Everything is ready! Now you can run your code on Kubernetes by clicking the Run button or debug it by clicking the Debug button.
+✈️ Everything is ready! Now you can run your code on Kubernetes by clicking the Run button or debug it by clicking the Debug button.
