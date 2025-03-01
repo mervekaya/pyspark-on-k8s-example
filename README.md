@@ -27,6 +27,10 @@ To directly access your Kubernetes cluster and run kubectl commands through your
 ```bash
 cp /xxxxxx/xxx.yaml ~/.kube/config
 ```
+After this command, you can access the Kubernetes cluster from your terminal. To test the connection to Kubernetes from your terminal, you can use the following command:
+```bash
+kubectl get pods -n spark
+```
 4. To isolate your Spark resources, create a spark namespace in Kubernetes:
 ```bash
 kubectl create namespace spark
