@@ -74,15 +74,15 @@ To create the driver pod from this docker image use the `k8s/dev-pod.yaml`. In t
 1. Use the k8s/dev-pod.yaml file to define the driver pod.
 2. Deploy the driver pod by running the following command:
 ```bash 
-`kubectl apply -f kubernetes/dev_pod.yaml -n spark
+kubectl apply -f kubernetes/dev_pod.yaml -n spark
 ```
 3. Check if the pod is running with the following command:
 ```bash 
-`kubectl get pods -n spark
+kubectl get pods -n spark
 ```
 4. If the driver pod is not running, check its logs with the following command:
 ```bash 
-`kubectl logs -n spark dev-pod
+kubectl logs -n spark dev-pod
 ```
 5. Once the pod is running, forward its port 22 to your local machine's port 2222 using the command below:
 ```bash 
@@ -102,7 +102,6 @@ To run Spark code on Kubernetes, the executor container requires a specific Dock
 
 - **The same Spark version as the driver** (e.g., Spark 3.5.3) to ensure compatibility.
 - **The same Java version as the Kubernetes environment** to avoid runtime issues.
-- A working directory /app where the application files are copied.
 - Python dependencies installed from requirements.txt.
 - The main application entry point (main.py) to start the Spark job.
 
