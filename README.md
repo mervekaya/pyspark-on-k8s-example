@@ -113,7 +113,7 @@ To run Spark code on Kubernetes, the executor container requires a specific Dock
 1. Update the `Dockerfile.executor` as needed.
 2. Build the updated Docker image:
 ```bash 
-docker build -f kubernetes/Dockerfile.executor -t xxxx/devpod:latest .
+docker build -f kubernetes/Dockerfile.executor -t xxxx/executor:latest .
 ```
 3. Push the updated image to the repository:
 ```bash 
