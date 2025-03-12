@@ -70,7 +70,7 @@ docker build -f kubernetes/Dockerfile.devpod -t xxxx/devpod:latest .
 ```bash 
 docker push xxxxx/devpod:latest
 ```
-I have already created and published this image, you can use it directly (`mervezeybel/devpod`).
+I have already created and published this image, you can use it directly (`mervezeybel/devpod:latest`).
 
 To create the driver pod from this docker image use the `k8s/dev-pod.yaml`. In this file  the Docker image is specified, and the pod is configured to expose port 22 for SSH access.
 
@@ -119,7 +119,7 @@ docker build -f kubernetes/Dockerfile.executor -t xxxx/devpod:latest .
 ```bash 
 docker push xxxx/executor:latest
 ```
-I have already created and published this image, you can use it directly (`mervezeybel/executor`). 
+I have already created and published this image, you can use it directly (`mervezeybel/executor:latest`). 
 This image will be used by the Spark executor pods when running your PySpark code on Kubernetes. Make sure that both the Spark and Java versions in the executor image match those in the driver pod to ensure smooth execution.
 
 ## 4. Configuring Spark for Execution
